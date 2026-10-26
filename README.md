@@ -8,15 +8,13 @@ This first version focuses on the receiver’s experience. A click on the cake f
 
 The receiver page shows a cake with five candles. Clicking the cake fades in the birthday card. Finish opens the sender route.
 
-Allow microphone asks for permission with `getUserMedia`, then an `AnalyserNode` shows a level from 0 to 128. The number stays small in a quiet room and rises when you speak, clap, or blow. A loud number does not open the card yet.
+Allow microphone asks for permission with `getUserMedia`, then an `AnalyserNode` shows a level from 0 to 128. A quiet room reads about 0–2. Speaking reaches about 6–7, and a clap about 12. Blowing stays around 0–1, the same range as silence, though the value can hold at 1 a little longer. A loudness threshold would catch speech and claps and miss a blow. The card still opens only when the cake is clicked.
 
 ## Next
 
-- Measure the quiet room and keep that background level.
-- Set a threshold above the background.
-- Require the sound to stay above the threshold for a short time.
-- When both checks pass, stop the microphone and reveal the card, the same result as clicking the cake.
-- Compare a fixed threshold, a background threshold, and a background threshold plus duration, using blows, speech, claps, and music.
+- Confirm which microphone the page is using.
+- Investigate frequency, because a blow is low and breathy while speech and claps spread higher.
+- A duration check is only a clue so far. It was not tested, and sustained speaking could still pass it.
 
 ## Technologies
 
