@@ -58,12 +58,6 @@ export default function Receive() {
       <section className="wish">
         <h1>Make a wish, Maya</h1>
         <p className="instruction">Then blow out the candles</p>
-        <button type="button" className="listen" onClick={askPermission}>
-          Allow microphone
-        </button>
-        {message ? <p className="mic-message">{message}</p> : null}
-        {level !== null ? <p className="mic-message">Level: {level}</p> : null}
-
         <button type="button" className="blow" aria-label="Blow out the candles" onClick={() => setShowCard(true)}>
           <span className="candles">
             {Array.from({ length: 5 }, (_, index) => (
@@ -72,6 +66,11 @@ export default function Receive() {
           </span>
           <Cake />
         </button>
+        <button type="button" className="listen" onClick={askPermission}>
+          Allow microphone
+        </button>
+        {message ? <p className="mic-message">{message}</p> : null}
+        {level !== null ? <p className="mic-message">Level: {level}</p> : null}
       </section>
       <Card />
     </main>

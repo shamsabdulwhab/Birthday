@@ -242,7 +242,7 @@ main {
   position: relative;
   z-index: 1;
   width: 8px;
-  height: 16px;
+  height: 32px;
   margin-bottom: -3px;
   border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
   background: linear-gradient(#fff6c8, #f0c14a 40%, #e2a322);
