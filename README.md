@@ -19,8 +19,6 @@ The receiver page shows a cake with five candles. Clicking the cake, or a microp
 Allow microphone asks for permission with `getUserMedia`, then an `AnalyserNode` reads a level from 0 to 128. The level is printed in the console about once a second. A quiet room reads about 0–2. Speaking reaches about 6–7, and a clap about 12. Blowing stays around 0–1, the same range as silence, though the value can hold at 1 a little longer. The level check therefore catches speech and claps and misses a blow. Clicking the cake still runs the same flame-out and card.
 
 ## Next
-
-- Confirm which microphone the page is using.
 - Investigate frequency, because a blow is low and breathy while speech and claps spread higher.
 - A duration check is only a clue so far. It was not tested, and sustained speaking could still pass it.
 
