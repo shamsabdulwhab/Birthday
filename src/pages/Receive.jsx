@@ -8,6 +8,7 @@ export default function Receive() {
   const [showCard, setShowCard] = useState(false)
   const [candlesOut, setCandlesOut] = useState(false)
   const [message, setMessage] = useState("")
+  const [listening, setListening] = useState(false)
   const audioRef = useRef(null)
   const lastLog = useRef(0)
   const cardTimer = useRef(null)
@@ -64,8 +65,10 @@ export default function Receive() {
       }
 
       readLevel()
+      setListening(true)
       setMessage("")
     } catch {
+      setListening(false)
       setMessage("The microphone stays off until you allow it in the browser.")
     }
   }
@@ -84,9 +87,11 @@ export default function Receive() {
           </span>
           <Cake />
         </button>
-        <button type="button" className="listen" onClick={askPermission}>
-          Allow microphone
-        </button>
+        {listening ? null : (
+          <button type="button" className="listen" onClick={askPermission}>
+            Allow microphone
+          </button>
+        )}
         {message ? <p className="mic-message">{message}</p> : null}
       </section>
       <Card />
