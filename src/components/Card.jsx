@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import photo from "../friends.png"
 
 function Card() {
   const navigate = useNavigate()
@@ -7,7 +8,7 @@ function Card() {
     <section className="letter">
       <h1>For All the little moment</h1>
       <article className="card">
-        <div className="photo" role="img" aria-label="Friends together" />
+        <img className="photo" src={photo} alt="Friends together" />
         <div className="note">
           <p className="greeting">Maya,</p>
           <p>

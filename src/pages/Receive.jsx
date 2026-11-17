@@ -6,11 +6,22 @@ import Envelope from "../components/Envelope.jsx"
 
 export default function Receive() {
   const [showCard, setShowCard] = useState(false)
+  const [candlesOut, setCandlesOut] = useState(false)
   const [message, setMessage] = useState("")
-  const [level, setLevel] = useState(null)
   const audioRef = useRef(null)
+  const lastLog = useRef(0)
+  const cardTimer = useRef(null)
+  const candlesBlown = useRef(false)
+
+  function blowOut() {
+    if (candlesBlown.current) return
+    candlesBlown.current = true
+    setCandlesOut(true)
+    cardTimer.current = setTimeout(() => setShowCard(true), 2000)
+  }
 
   function stopListening() {
+    clearTimeout(cardTimer.current)
     const audio = audioRef.current
     if (!audio) return
     cancelAnimationFrame(audio.frame)
@@ -23,7 +34,9 @@ export default function Receive() {
 
   async function askPermission() {
     stopListening()
-    setLevel(null)
+    lastLog.current = 0
+    candlesBlown.current = false
+    setCandlesOut(false)
     setMessage("Waiting for you to allow the microphone…")
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
@@ -41,12 +54,17 @@ export default function Receive() {
         let total = 0
         for (const sample of samples) total += Math.abs(sample - 128)
         const next = Math.round(total / samples.length)
-        setLevel((current) => (current === next ? current : next))
+        const now = performance.now()
+        if (now - lastLog.current >= 1000) {
+          lastLog.current = now
+          console.log("Level:", next)
+        }
+        if (next >= 4) blowOut()
         audio.frame = requestAnimationFrame(readLevel)
       }
 
       readLevel()
-      setMessage("Blow, speak, or clap. The level should rise.")
+      setMessage("")
     } catch {
       setMessage("The microphone stays off until you allow it in the browser.")
     }
@@ -55,10 +73,10 @@ export default function Receive() {
   return (
     <main className={showCard ? "revealed" : ""}>
       <Envelope />
-      <section className="wish">
+      <section className={candlesOut ? "wish blown" : "wish"}>
         <h1>Make a wish, Maya</h1>
         <p className="instruction">Then blow out the candles</p>
-        <button type="button" className="blow" aria-label="Blow out the candles" onClick={() => setShowCard(true)}>
+        <button type="button" className="blow" aria-label="Blow out the candles" onClick={blowOut}>
           <span className="candles">
             {Array.from({ length: 5 }, (_, index) => (
               <Candle key={index} />
@@ -70,7 +88,6 @@ export default function Receive() {
           Allow microphone
         </button>
         {message ? <p className="mic-message">{message}</p> : null}
-        {level !== null ? <p className="mic-message">Level: {level}</p> : null}
       </section>
       <Card />
     </main>

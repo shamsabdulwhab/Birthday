@@ -75,11 +75,11 @@ main {
 }
 
 .photo {
+  display: block;
+  width: 100%;
   height: 230px;
   margin-bottom: 18px;
-  background:
-    linear-gradient(120deg, rgba(255, 255, 255, 0.35), transparent 40%),
-    #e4ddd8;
+  object-fit: cover;
 }
 
 .note {
@@ -248,12 +248,19 @@ main {
   background: linear-gradient(#fff6c8, #f0c14a 40%, #e2a322);
   transform-origin: center bottom;
   animation: flicker 0.35s infinite alternate ease-in-out;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.blown .one-candle .flame {
+  animation: none;
+  opacity: 0;
+  transform: scale(0.2, 0.05);
 }
 
 .one-candle .candle {
   display: block;
   position: relative;
-  width: 12px;
+  width: 14px;
   height: 52px;
   border-radius: 3px;
   background: linear-gradient(90deg, #e4bfb4, #f8e7de 46%, #e7cdc2);
