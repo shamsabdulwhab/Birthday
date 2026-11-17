@@ -6,10 +6,13 @@ This first version focuses on the receiver’s experience. The candles go out fi
 
 Live site: https://poetic-marigold-085535.netlify.app/
 
-![Make a wish, with the candles lit] <img src="Screenshot%202026-11-17%20134248.png" alt="Make a wish, with the candles lit" width="420">
-![The candles after they go out] <img src="Screenshot%202026-11-17%20134351.png" alt="The candles after they go out" width="280">
+![Make a wish, with the candles lit] 
+<img src="Screenshot%202026-11-17%20134248.png" alt="Make a wish, with the candles lit" width="420">
+![The candles after they go out] 
+<img src="Screenshot%202026-11-17%20134351.png" alt="The candles after they go out" width="280">
 
-![The birthday card] <img src="Screenshot%202026-11-17%20134711.png" alt="The birthday card" width="280">
+![The birthday card]
+<img src="Screenshot%202026-11-17%20134711.png" alt="The birthday card" width="280">
 
 ## Current status
 
