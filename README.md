@@ -6,7 +6,7 @@ This first version focuses on the receiver’s experience. The candles go out fi
 
 Live site: https://poetic-marigold-085535.netlify.app/
 
-<img src="imgcandles.png" alt="Make a wish, with the candles lit" width="280"> <img src="imgcandles2.png" alt="The candles after they go out" width="280"> <img src="imgcard.png" alt="The birthday card" width="280">
+<img src="imgcandles.png" alt="Make a wish, with the candles lit" width="280" height="160"> <img src="imgcandles2.png" alt="The candles after they go out" width="280" height="160"> <img src="imgcard.png" alt="The birthday card" width="280" height="160">
 
 ## Current status
 
