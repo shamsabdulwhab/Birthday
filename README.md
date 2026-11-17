@@ -7,6 +7,7 @@ This first version focuses on the receiver’s experience. The candles go out fi
 Live site: https://poetic-marigold-085535.netlify.app/
 
 ![Make a wish, with the candles lit](Screenshot%202026-11-17%20134248.png)
+<img src="Screenshot%202026-11-17%20134248.png" alt="Make a wish, with the candles lit" width="420">
 
 ![The candles after they go out](Screenshot%202026-11-17%20134351.png)
 
